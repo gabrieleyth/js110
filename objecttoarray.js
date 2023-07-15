@@ -6,6 +6,19 @@ let obj = {
   marrow: { type: 'vegetable', colors: ['green'], size: 'large' },
 };
 
+// BEST WAY
+let capitalize = word => word[0].toUpperCase() + word.slice(1);
+
+Object.values(obj).map(attributes => {
+  if (attributes['type'] === 'fruit') {
+    return attributes['colors'].map(char => capitalize(char));
+  } else {
+    return attributes['size'].toUpperCase();
+  }
+});
+
+
+// Better but no majuscule
 let newArr = [];
 
 Object.values(obj).forEach(obj => {
@@ -23,6 +36,8 @@ console.log(newArr);
   'LARGE'
 ]
 */
+
+// just dumps everything into the array
 
 let differentArr = [];
 
