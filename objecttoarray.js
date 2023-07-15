@@ -6,6 +6,24 @@ let obj = {
   marrow: { type: 'vegetable', colors: ['green'], size: 'large' },
 };
 
+let newArr = [];
+
+Object.values(obj).forEach(obj => {
+  obj["type"] === "fruit" ? newArr.push(obj["colors"]) : newArr.push(obj["size"].toUpperCase());
+
+});
+
+console.log(newArr);
+/*
+[
+  [ 'red', 'green' ],
+  'MEDIUM',
+  [ 'red', 'green' ],
+  [ 'orange' ],
+  'LARGE'
+]
+*/
+
 let differentArr = [];
 
 Object.values(obj).map(obj => {
@@ -15,3 +33,16 @@ Object.values(obj).map(obj => {
 });
 
 console.log(differentArr);
+
+/*
+[
+  [ 'red', 'green' ], [ 'red', 'green' ],
+  [ 'red', 'green' ], 'medium',
+  'medium',           'medium',
+  [ 'red', 'green' ], [ 'red', 'green' ],
+  [ 'red', 'green' ], [ 'orange' ],
+  [ 'orange' ],       [ 'orange' ],
+  'large',            'large',
+  'large'
+]
+*/
