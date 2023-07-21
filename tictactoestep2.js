@@ -39,10 +39,6 @@ function initializeBoard() {
   return board;
 }
 
-
-
-displayBoard(board); // initializes empty board
-
 function emptySquares(board) {
   return Object.keys(board).filter(key => board[key] === INITIAL_MARKER);
   // we use this expression in both playerChoosesSquare and computerChoosesSquare
