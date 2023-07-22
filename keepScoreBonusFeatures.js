@@ -101,6 +101,7 @@ function someoneWon(board) {
 }
 
 function detectWinner(board) {
+ 
   let winningLines = [
     [1, 2, 3], [4, 5, 6], [7, 8, 9], // rows
     [1, 4, 7], [2, 5, 8], [3, 6, 9], // columns
@@ -116,17 +117,35 @@ function detectWinner(board) {
         board[sq3] === HUMAN_MARKER
     ) {
       return 'Player';
+      
     } else if (
         board[sq1] === COMPUTER_MARKER &&
         board[sq2] === COMPUTER_MARKER &&
         board[sq3] === COMPUTER_MARKER
     ) {
-      return 'Computer';
+      return "Computer";
     }
   }
 
   return null;
 }
+
+// keepScore bonus feature input starts 
+let playerScore = 0;
+let computerScore = 0;
+  
+function scoreKeeper(board) {
+  if (board === "Player") {
+    playerScore += 1;
+    return playerScore;
+  } else if (board === "Computer") {
+    computerScore += 1;
+    return computerScore;
+  }
+  // checks who's score we should return based on who won
+  // as detected by detectWinner
+}
+// keepScore bonus feature input ends
 
 while (true) {
   let board = initializeBoard();
@@ -144,7 +163,14 @@ while (true) {
   displayBoard(board);
 
   if (someoneWon(board)) {
-    prompt(`${detectWinner(board)} won!`);
+    // keepscore bonus features modifications start
+    prompt(`${detectWinner(board)} won! ${detectWinner(board)} score is ${scoreKeeper(detectWinner(board))}`);
+    if (playerScore >= 5 || computerScore >= 5) {
+      prompt(`${detectWinner(board)} won the overall game!`);
+      playerScore = 0;
+      computerScore = 0;
+    }
+    // keepscore bonus features modifications end
   } else {
     prompt("It's a tie!");
   }
