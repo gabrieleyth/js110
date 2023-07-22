@@ -5,6 +5,11 @@ joinOr([]);                      // => ""
 joinOr([5]);                     // => "5"
 joinOr([1, 2]);                  // => "1 or 2"
 
+function prompt(msg) {
+  console.log(`=> ${msg}`);
+}
+
+// my function here for the joinOR bonus feature 
 function joinOr(input, separator, last) {
   // || means if there is no separator/last it is a falsy value, the value will thus be the first truthy value
   // which i set as default "," and "or"
@@ -23,13 +28,13 @@ function joinOr(input, separator, last) {
       }
     }
   
-  console.log(newArr.join(separator || ", "));
+  prompt(`Choose a square: ${newArr.join(separator || ", ")}`);
   // combine everything based on a custom or default separator
    
   } else if ( input.length === 2) {
-    console.log(`${input[0]} ${last || "or"} ${input[1]}`);
+    prompt(`Choose a square: ${input[0]} ${last || "or"} ${input[1]}`);
   } else {
-    console.log(`${input[0] || ""}`); 
+    prompt(`Choose a square: ${input[0] || ""}`); 
     // prevents empty arrays from logging undefined and logs empty string instead
   }
 }
