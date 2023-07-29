@@ -7,12 +7,26 @@ function fridayThe13ths(year) {
     thirteenths.push(new Date(year, month, 13));
   }
 
-  return thirteenths;
-  /*// Use the reduce() method to count the number of Fridays among the 13th days.
+  // return thirteenths;
+  // Use the reduce() method to count the number of Fridays among the 13th days.
   return thirteenths.reduce((count, day) => {
-    // If the day is a Friday (getDay() returns 5 for Friday), increment the count by 1; otherwise, keep the count unchanged.
+    // If the day is a Friday (day.getDay() returns 5 for Friday), increment the count by 1; otherwise, keep the count unchanged.
+    // Sunday - Saturday : 0 - 6
+    // you can use reduce to count too with a variation of accum and current
     return day.getDay() === 5 ? (count + 1) : count;
-  }, 0);*/
+  }, 0);
 }
 
-console.log(fridayThe13ths(2015));
+console.log(fridayThe13ths(2015)); // 3
+
+/* this is raw thirteenths arrays 
+ 2015-01-13T00:00:00.000Z,
+  2015-02-13T00:00:00.000Z,
+  2015-03-13T00:00:00.000Z,
+  2015-04-13T00:00:00.000Z,
+  2015-05-13T00:00:00.000Z,
+  2015-06-13T00:00:00.000Z,
+  2015-07-13T00:00:00.000Z,
+  2015-08-13T00:00:00.000Z,
+  2015-09-13T00:00:00.000Z,
+*/
